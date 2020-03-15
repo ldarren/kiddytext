@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
+import './cfg.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,8 +49,31 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _search = "earth";
+  Cfg _cfg;
+  List _data;
 
-  void _incrementCounter() {
+  @override
+  void initState(){
+    super.initState();
+    loadCfg("cfg.json");
+  }
+
+  void loadCfg(path) async{
+    _cfg = await CfgLoader.load(path);
+  }
+
+  void _incrementCounter() async {
+    try{
+      var response= await http.get('https://api.unsplash.com/search/photos?per_page=1&client_id=${_cfg.unsplashKey}&query=${_search}');
+      var converted = json.decode(response.body);
+
+      setState(() {
+        _data=converted['results'];
+      });
+    }
+    catch(e){}
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

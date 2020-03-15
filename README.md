@@ -1,16 +1,10 @@
-# kiddytext
+# KiddyText
 
-A new Flutter project.
+This a vocabulary learning app for kids. Type a term, picture will be shown, sound will be play to help kids learn languages in a fun way
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- register an unsplash developer account and add to key to cfg.json
+```
+cp cfg.template.json cfg.json
+```
