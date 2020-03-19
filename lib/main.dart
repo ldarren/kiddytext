@@ -52,6 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String _search = "earth";
   Cfg _cfg;
   List _data;
+  Icon icoSearch = Icon(Icons.search);
+  Widget txtSearch = Text("KiddyText");
 
   @override
   void initState(){
@@ -60,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void loadCfg(path) async{
-    _cfg = await CfgLoader.load(path);
+    _cfg = await Cfg.load(path);
   }
 
   void _incrementCounter() async {
@@ -96,7 +98,34 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: txtSearch,
+        leading: IconButton(
+          onPressed: (){},
+          tooltip: 'menu',
+          icon: Icon(Icons.menu)
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: icoSearch,
+            onPressed: (){
+              setState(() {
+                if (icoSearch.icon == Icons.search){
+                  this.icoSearch = Icon(Icons.cancel);
+                  this.txtSearch = TextField(
+                    autofocus: true,
+                    textInputAction: TextInputAction.done,
+                    decoration: InputDecoration(
+                      hintText: "Type a word"
+                    ),
+                  );
+                }else{
+                  this.icoSearch = Icon(Icons.search);
+                  this.txtSearch = Text('KiddyText');
+                }
+              });
+            },
+          )
+        ]
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
