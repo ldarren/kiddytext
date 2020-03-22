@@ -1,3 +1,5 @@
+// ref: https://github.com/AmberNet-TW-Will/RestaurantFinder
+// ref: https://github.com/gaurangkeluskar22/medimumapp
 import 'package:flutter/material.dart';
 import 'package:kiddytext/m/photo.dart';
 import 'package:kiddytext/vm/bloc_provider.dart';
@@ -30,7 +32,7 @@ class KiddyText extends StatelessWidget {
             child: TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'What do you want to read?'),
+                  hintText: 'Type something'),
               onSubmitted: (query) => bloc.search(query),
             ),
           ),
@@ -49,7 +51,7 @@ class KiddyText extends StatelessWidget {
         final results = snapshot.data;
 
         if (results == null) {
-          return Center(child: Text('Enter a restaurant name or cuisine type'));
+          return Center(child: Text('Enter a term'));
         }
 
         if (results.isEmpty) {
