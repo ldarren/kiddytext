@@ -21,7 +21,7 @@ class Unsplash {
 
   Future<List<Photo>> searchPhotos(String query) async {
     final response = await request(path: 'search/photos', parameters: {'query': query, 'per_page': '10', 'client_id': _cfg.unsplashKey});
-
+    if (null != response['error']) return null;
     final results = response['results'];
     return results
         .map<Photo>((json) => Photo.fromJson(json))

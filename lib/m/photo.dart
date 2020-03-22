@@ -1,12 +1,10 @@
-import 'dart:ffi';
-
 class Photo{
   String id;
   String color;
   String url;
   String description;
-  Uint32 width;
-  Uint32 height;
+  int width;
+  int height;
 
   Photo.fromJson(json)
       : id = json['id'],
