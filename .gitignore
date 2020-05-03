@@ -66,6 +66,7 @@ build/
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Runner.xcworkspace/xcshareddata/
 
 
 ### https://raw.github.com/github/gitignore//Android.gitignore
