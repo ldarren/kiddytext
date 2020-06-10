@@ -2,6 +2,8 @@
 
 This a vocabulary learning app for kids. Type a term, picture will be shown, sound will be play to help kids learn languages in a fun way
 
+The application can be downloaded in the [Apple App Store](https://apps.apple.com/sg/app/ktext/id1508863322?mt=8).
+
 ## Getting Started
 
 - register an unsplash developer account and add to key to cfg.json
